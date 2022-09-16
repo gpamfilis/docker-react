@@ -68,3 +68,33 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+# Docker
+docker run -p 3000:3000 -v $(pwd):/app image_id
+## Error
+/tmp/start-c29cc581.sh: line 1: react-scripts: not found 
+
+docker run -p 3000:3000 -v /app/node_modules -v $(pwd):/app image_id
+
+
+
+
+
+#LINKS
+
+https://stackoverflow.com/questions/67187750/docker-eacces-permission-denied-mkdir-app-node-modules-cache
+
+https://stackoverflow.com/questions/67639482/docker-eacces-permission-denied-mkdir-app-node-modules-cache
+
+
+docker run -it image_id npm run test
+
+
+Run updated tests 
+
+docker compose up
+
+attach to container to run tests. Updated tests appear also.
+
+docker exec -it 306100d67e12 npm run test

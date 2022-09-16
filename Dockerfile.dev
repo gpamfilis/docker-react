@@ -1,0 +1,21 @@
+FROM node:16-alpine
+
+WORKDIR '/app'
+
+COPY package.json .
+
+RUN npm config set unsafe-perm true
+
+RUN npm install --force
+
+COPY . .
+
+RUN chown -R node /app/node_modules
+
+USER node
+
+CMD ["npm", "run", "start"]
+
+
+# https://stackoverflow.com/questions/67187750/docker-eacces-permission-denied-mkdir-app-node-modules-cache
+# https://stackoverflow.com/questions/67639482/docker-eacces-permission-denied-mkdir-app-node-modules-cache
