@@ -10,3 +10,16 @@ before_install:
 
 script:
   - docker run -e CI=true gpamfilis/docker-react npm run test
+
+# tell it how to deploy to aws. :)
+deploy:
+  provider: elasticbeanstalk
+  region: "eu-central-1"
+  app: "docker-app"
+  env: "Dockerapp-env"
+  bucket_name: "elasticbeanstalk-eu-central-1-378779462563"
+  bucket_path: "docker-app"
+  on:
+    branch: master
+  access_key_id: "$AWS_ACCESS_KEY"
+  secret_access_key: "$AWS_SECRET_KEY"
